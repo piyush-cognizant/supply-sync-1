@@ -1,0 +1,126 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@supplysync.com",
+      "password": "admin123",
+      "role": "ADMIN"
+    },
+    {
+      "id": 2,
+      "email": "vendor@steelco.com",
+      "password": "vendor123",
+      "role": "VENDOR",
+      "vendorId": 1
+    }
+  ],
+
+  "vendors": [
+    {
+      "id": 1,
+      "name": "SteelCo Pvt Ltd",
+      "contactEmail": "contact@steelco.com",
+      "contactPhone": "9876543210",
+      "status": "APPROVED",
+      "createdAt": "2026-01-01T09:00:00Z"
+    }
+  ],
+
+  "vendorDocuments": [
+    {
+      "id": 1,
+      "vendorId": 1,
+      "type": "ISO_9001",
+      "url": "vendor-docs/1/iso_9001_2026.pdf",
+      "fileName": "iso_9001_2026.pdf",
+      "fileType": "application/pdf",
+      "status": "APPROVED",
+      "uploadedAt": "2026-01-01T10:00:00Z",
+      "verifiedAt": "2026-01-02T11:00:00Z"
+    },
+    {
+      "id": 2,
+      "vendorId": 1,
+      "type": "GST_CERTIFICATE",
+      "url": "vendor-docs/1/gst_cert_2026.pdf",
+      "fileName": "gst_cert_2026.pdf",
+      "fileType": "application/pdf",
+      "status": "APPROVED",
+      "uploadedAt": "2026-01-01T10:05:00Z",
+      "verifiedAt": "2026-01-02T11:00:00Z"
+    }
+  ],
+
+  "products": [
+    {
+      "id": 1,
+      "name": "Steel Rod Grade A",
+      "unit": "KG",
+      "isActive": true,
+      "createdAt": "2026-01-01T08:30:00Z"
+    }
+  ],
+
+  "vendorProducts": [
+    {
+      "id": 1,
+      "vendorId": 1,
+      "productId": 1,
+      "unitPrice": 55,
+      "leadTimeDays": 5,
+      "createdAt": "2026-01-01T09:30:00Z"
+    }
+  ],
+
+  "plants": [
+    {
+      "id": 1,
+      "name": "Pune Plant",
+      "location": "Pune",
+      "createdAt": "2026-01-01T08:00:00Z"
+    }
+  ],
+
+  "inventory": [
+    {
+      "id": 1,
+      "productId": 1,
+      "plantId": 1,
+      "quantityAvailable": 450,
+      "reorderLevel": 500,
+      "lastUpdated": "2026-01-04T12:00:00Z"
+    }
+  ],
+
+  "purchaseOrders": [
+    {
+      "id": 1,
+      "vendorId": 1,
+      "plantId": 1,
+      "orderDate": "2026-01-01T13:00:00Z",
+      "expectedDeliveryDate": "2026-01-06T00:00:00Z",
+      "actualDeliveryDate": "2026-01-05T15:00:00Z",
+      "status": "DELIVERED"
+    }
+  ],
+
+  "purchaseOrderItems": [
+    {
+      "id": 1,
+      "purchaseOrderId": 1,
+      "productId": 1,
+      "quantity": 200,
+      "unitPrice": 55
+    }
+  ],
+
+  "performanceMetrics": [
+    {
+      "id": 1,
+      "vendorId": 1,
+      "onTimeDeliveryRate": 100,
+      "qualityScore": 4.6,
+      "evaluationDate": "2026-01-07T10:00:00Z"
+    }
+  ]
+}

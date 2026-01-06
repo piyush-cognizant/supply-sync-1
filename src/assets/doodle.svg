@@ -1,0 +1,31 @@
+<svg
+  aria-hidden="true"
+  className="pointer-events-none absolute inset-0 opacity-20 dark:opacity-15 text-teal-400 dark:text-teal-500"
+  viewBox="0 0 800 800"
+  xmlns="http://www.w3.org/2000/svg"
+  preserveAspectRatio="none"
+>
+  <defs>
+    <pattern id="supply-sync-doodles" x="0" y="0" width="200" height="200"
+      patternUnits="userSpaceOnUse"> {/* Box / pallet */} <rect x="20" y="20" width="48" height="36"
+        rx="6" fill="none" stroke="currentColor" strokeWidth="1.5" />
+            <line x1="20" y1="38" x2="68"
+        y2="38" stroke="currentColor" strokeWidth="1.5" opacity="0.5" /> {/* Arrows */} <path
+        d="M120 30 h40" stroke="currentColor" strokeWidth="1.5" fill="none" />
+            <path
+        d="M158 26 l12 4 -12 4" stroke="currentColor" strokeWidth="1.5" fill="none" /> {/* Link /
+      node */} <circle cx="50" cy="120" r="8" fill="none" stroke="currentColor" strokeWidth="1.5" />
+            <circle
+        cx="100" cy="140" r="8" fill="none" stroke="currentColor" strokeWidth="1.5" />
+            <line x1="58"
+        y1="124" x2="92" y2="136" stroke="currentColor" strokeWidth="1.5" opacity="0.7" /> {/*
+      Barcode-esque lines */} <line x1="150" y1="110" x2="170" y2="110" stroke="currentColor"
+        strokeWidth="1" opacity="0.6" />
+            <line x1="150" y1="116" x2="176" y2="116"
+        stroke="currentColor" strokeWidth="1.5" opacity="0.6" />
+            <line x1="150" y1="122" x2="168"
+        y2="122" stroke="currentColor" strokeWidth="1" opacity="0.6" />
+    </pattern>
+  </defs>
+  <rect x="0" y="0" width="100%" height="100%" fill="url(#supply-sync-doodles)" />
+</svg>
