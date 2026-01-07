@@ -13,17 +13,19 @@ const useAuthStore = create(
       clearAuth: () => {
         set({ isAuthenticated: false, token: null, user: null })
       },
+      getUser: () => {
+        return useAuthStore.getState().user
+      }
     }),
     {
       name: "ss-auth",
-      storage: localStorage,
     }
   )
 )
 
 export const useAuth = () => {
-  const { isAuthenticated, token, setAuth, clearAuth } = useAuthStore()
-  return { isAuthenticated, token, setAuth, clearAuth }
+  const { isAuthenticated, token, setAuth, clearAuth, getUser } = useAuthStore()
+  return { isAuthenticated, token, setAuth, clearAuth, getUser }
 }
 
 export default useAuthStore;

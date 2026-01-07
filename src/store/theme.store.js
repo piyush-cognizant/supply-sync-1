@@ -13,7 +13,6 @@ const useThemeStore = create(
     }),
     {
       name: "ss-theme",
-      storage: localStorage,
     }
   )
 )

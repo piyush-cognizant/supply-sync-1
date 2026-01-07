@@ -3,13 +3,10 @@ import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import {
   Field,
-  FieldDescription,
   FieldGroup,
   FieldLabel,
   FieldError,
@@ -19,8 +16,12 @@ import { loginSchema } from "@/lib/schemas/login.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import BrandName from "../common/BrandName";
+import { useAuth } from "@/store/auth.store";
+import authService from "@/services/auth.service";
+import { toast } from "sonner";
 
 const LoginCard = ({ className, ...props }) => {
+  const { setAuth } = useAuth();
   const form = useForm({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -29,15 +30,23 @@ const LoginCard = ({ className, ...props }) => {
     },
   });
 
-  const onSubmit = (data) => {
-    console.log("Form Data:", data);
+  const onSubmit = async (data) => {
+    const response = await authService.login(data.email, data.password);
+    console.log(data, response.data.user);
+    if (response.success) {
+      setAuth(true, "dummy-token", response.data.user);
+      toast.success(response.message || "Login successful");
+      // window.location.reload();
+    } else {
+      toast.error(response.message || "Login failed");
+    }
   };
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <Card>
-        <CardHeader>
-          <div className="text-center bg-white/10 dark:bg-slate-900/70 backdrop-blur-sm px-4 py-2">
+      <Card className="bg-dark/2 backdrop-blur-md shadow-lg border border-dark/20">
+        <CardHeader className="">
+          <div className="text-center px-4 py-2">
             <BrandName />
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
               Sync your supply chain with clarity and speed
@@ -56,7 +65,7 @@ const LoginCard = ({ className, ...props }) => {
                     <Input
                       {...field}
                       id={field.name}
-                      placeholder="m@example.com"
+                      placeholder="Enter your email"
                     />
                     {fieldState.invalid && (
                       <FieldError errors={[fieldState.error]} />
@@ -78,14 +87,16 @@ const LoginCard = ({ className, ...props }) => {
                         Forgot your password?
                       </a>
                     </div>
-                    <Input {...field} id={field.name} type="password" />
+                    <Input {...field} id={field.name} type="password" placeholder="*******" />
                     {fieldState.invalid && (
                       <FieldError errors={[fieldState.error]} />
                     )}
                   </Field>
                 )}
               />
-              <Button type="submit">Login</Button>
+              <Button type="submit" className="cursor-pointer" disabled={!form.formState.isValid || form.formState.isSubmitting}>
+                {form.formState.isSubmitting ? "Logging in..." : "Login"}
+              </Button>
             </FieldGroup>
           </form>
         </CardContent>
