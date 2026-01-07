@@ -20,8 +20,8 @@ const LandingPage = () => {
       />
 
       {/* Ambient blobs */}
-      <div className="pointer-events-none absolute -top-24 -left-32 h-80 w-80 rounded-full bg-teal-300/25 blur-3xl dark:bg-teal-600/15" />
-      <div className="pointer-events-none absolute -bottom-28 -right-24 h-96 w-96 rounded-full bg-emerald-300/20 blur-3xl dark:bg-emerald-600/10" />
+      <div className="pointer-events-none absolute -top-24 -left-32 h-80 w-80 rounded-full bg-teal-300/25 blur-3xl dark:bg-teal-600/5" />
+      <div className="pointer-events-none absolute -bottom-28 -right-24 h-96 w-96 rounded-full bg-emerald-300/20 blur-3xl dark:bg-emerald-600/5" />
 
       {/* Auth card wrapper */}
       <div className="w-full max-w-md">
