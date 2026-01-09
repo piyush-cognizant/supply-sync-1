@@ -2,3 +2,10 @@ export const USER_ROLES = {
     ADMIN: 'ADMIN',
     VENDOR: 'VENDOR',
 };
+
+export const VENDOR_STATUS = {
+    APPROVED: 'APPROVED',
+    INACTIVE: 'INACTIVE',
+    SUSPENDED: 'SUSPENDED',
+    PENDING: 'PENDING',
+};

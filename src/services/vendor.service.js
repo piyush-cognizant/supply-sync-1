@@ -1,6 +1,7 @@
 import { mapMessage } from "@/constants/message-mapper";
 import apiService from "./api.service";
 import { VENDOR_ENDPOINT } from "@/constants/api-endpoints";
+import { getCurrentUTC } from "@/lib/date-time";
 
 const vendorService = {
     /* @returns {success: boolean, data: vendors[], message: string} */
@@ -29,10 +30,12 @@ const vendorService = {
         const response = await apiService.sendRequest(VENDOR_ENDPOINT.GET_BY_ID(id));
         console.log("Vendor Service Get By ID Response:", response);
 
-        if (response.success) {
+        if (response.success && response.data) {
+            // JSON Server returns the object directly for GET /resource/:id
+            const vendor = Array.isArray(response.data) ? response.data[0] : response.data;
             return {
                 success: true,
-                data: response.data[0],
+                data: vendor,
                 message: mapMessage("FETCH_SUCCESS")
             }
         }
@@ -47,10 +50,14 @@ const vendorService = {
     /* @param {object} vendorData */
     /* @returns {success: boolean, data: vendor, message: string} */
     create: async (vendorData) => {
+        const vendorPayload = {
+            ...vendorData,
+            createdAt: getCurrentUTC(),
+        };
         const response = await apiService.sendRequest(
             VENDOR_ENDPOINT.CREATE,
             "POST",
-            vendorData
+            vendorPayload
         );
         console.log("Vendor Service Create Response:", response);
 

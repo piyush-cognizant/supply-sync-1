@@ -41,4 +41,12 @@ const convertToUTC = (localTime, keepMilliseconds = false) => {
     }
 }
 
-export { convertToLocalTime, convertToUTC };
+/*
+* @returns Current UTC time string
+*/
+const getCurrentUTC = () => {
+    const now = new Date();
+    return now.toISOString().split('.')[0] + 'Z';
+}
+
+export { convertToLocalTime, convertToUTC, getCurrentUTC };

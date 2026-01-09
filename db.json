@@ -1,123 +1,147 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "da2f",
       "email": "admin@supplysync.com",
       "password": "admin123",
       "role": "ADMIN"
     },
     {
-      "id": 2,
+      "id": "c8f1",
       "email": "vendor@steelco.com",
       "password": "vendor123",
       "role": "VENDOR",
-      "vendorId": 1
+      "vendorId": "f2a4"
+    },
+    {
+      "id": "4a2e",
+      "email": "copper@cooper.com",
+      "password": "copper@123",
+      "role": "VENDOR",
+      "vendorId": "b4a8"
     }
   ],
-
   "vendors": [
     {
-      "id": 1,
+      "id": "f2a4",
+      "userId": "c8f1",
       "name": "SteelCo Pvt Ltd",
       "contactEmail": "contact@steelco.com",
       "contactPhone": "9876543210",
+      "address": {
+        "street": "123 Industrial Area",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "zipCode": "400001",
+        "country": "India"
+      },     
       "status": "APPROVED",
       "createdAt": "2026-01-01T09:00:00Z"
+    },
+    {
+      "id": "b4a8",
+      "userId": "4a2e",
+      "name": "Cooper Industries",
+      "contactEmail": "copper@cooper.com",
+      "contactPhone": "9123848484",
+      "address": {
+        "street": "456 Industrial Park",
+        "city": "Bangalore",
+        "state": "Karnataka",
+        "zipCode": "560001",
+        "country": "India"
+      },
+      "status": "PENDING",
+      "createdAt": "2026-01-09T10:55:22Z"
     }
   ],
-
   "vendorDocuments": [
     {
-      "id": 1,
-      "vendorId": 1,
-      "type": "ISO_9001",
-      "url": "vendor-docs/1/iso_9001_2026.pdf",
+      "id": "e7c3",
+      "vendorId": "f2a4",
+      "documentName": "ISO 9001 Certificate",
+      "documentType": "ISO_9001",
+      "url": "https://morth.nic.in/sites/default/files/dd12-13_0.pdf",
       "fileName": "iso_9001_2026.pdf",
       "fileType": "application/pdf",
-      "status": "APPROVED",
+      "verified": true,
       "uploadedAt": "2026-01-01T10:00:00Z",
       "verifiedAt": "2026-01-02T11:00:00Z"
     },
     {
-      "id": 2,
-      "vendorId": 1,
-      "type": "GST_CERTIFICATE",
-      "url": "vendor-docs/1/gst_cert_2026.pdf",
+      "id": "a5d9",
+      "vendorId": "f2a4",
+      "documentName": "GST Certificate",
+      "documentType": "GST_CERTIFICATE",
+      "url": "https://morth.nic.in/sites/default/files/dd12-13_0.pdf",
       "fileName": "gst_cert_2026.pdf",
       "fileType": "application/pdf",
-      "status": "APPROVED",
+      "verified": true,
       "uploadedAt": "2026-01-01T10:05:00Z",
       "verifiedAt": "2026-01-02T11:00:00Z"
     }
   ],
-
   "products": [
     {
-      "id": 1,
+      "id": "p7k2",
       "name": "Steel Rod Grade A",
       "unit": "KG",
       "isActive": true,
       "createdAt": "2026-01-01T08:30:00Z"
     }
   ],
-
   "vendorProducts": [
     {
-      "id": 1,
-      "vendorId": 1,
-      "productId": 1,
+      "id": "vp8x",
+      "vendorId": "f2a4",
+      "productId": "p7k2",
       "unitPrice": 55,
       "leadTimeDays": 5,
       "createdAt": "2026-01-01T09:30:00Z"
     }
   ],
-
   "plants": [
     {
-      "id": 1,
+      "id": "pl3m",
       "name": "Pune Plant",
       "location": "Pune",
       "createdAt": "2026-01-01T08:00:00Z"
     }
   ],
-
   "inventory": [
     {
-      "id": 1,
-      "productId": 1,
-      "plantId": 1,
+      "id": "inv1",
+      "productId": "p7k2",
+      "plantId": "pl3m",
       "quantityAvailable": 450,
       "reorderLevel": 500,
       "lastUpdated": "2026-01-04T12:00:00Z"
     }
   ],
-
   "purchaseOrders": [
     {
-      "id": 1,
-      "vendorId": 1,
-      "plantId": 1,
+      "id": "po9q",
+      "vendorId": "f2a4",
+      "plantId": "pl3m",
       "orderDate": "2026-01-01T13:00:00Z",
       "expectedDeliveryDate": "2026-01-06T00:00:00Z",
       "actualDeliveryDate": "2026-01-05T15:00:00Z",
       "status": "DELIVERED"
     }
   ],
-
   "purchaseOrderItems": [
     {
-      "id": 1,
-      "purchaseOrderId": 1,
-      "productId": 1,
+      "id": "poi5",
+      "purchaseOrderId": "po9q",
+      "productId": "p7k2",
       "quantity": 200,
       "unitPrice": 55
     }
   ],
-
   "performanceMetrics": [
     {
-      "id": 1,
-      "vendorId": 1,
+      "id": "pm2v",
+      "vendorId": "f2a4",
       "onTimeDeliveryRate": 100,
       "qualityScore": 4.6,
       "evaluationDate": "2026-01-07T10:00:00Z"
