@@ -54,10 +54,12 @@ const purchaseOrderService = {
     const response = await apiService.sendRequest(PURCHASE_ORDERS_ENDPOINT.GET_BY_ID(id));
     console.log("Purchase Order Service Get By ID Response:", response);
 
-    if (response.success) {
+    if (response.success && response.data) {
+      // json-server returns object directly for /resource/:id
+      const data = Array.isArray(response.data) ? response.data[0] : response.data;
       return {
         success: true,
-        data: response.data[0],
+        data,
         message: mapMessage("FETCH_SUCCESS"),
       };
     }

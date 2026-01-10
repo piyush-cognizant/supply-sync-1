@@ -3,13 +3,13 @@
     {
       "id": "da2f",
       "email": "admin@supplysync.com",
-      "password": "admin123",
+      "password": "admin@123",
       "role": "ADMIN"
     },
     {
       "id": "c8f1",
       "email": "vendor@steelco.com",
-      "password": "vendor123",
+      "password": "vendor@123",
       "role": "VENDOR",
       "vendorId": "f2a4"
     },

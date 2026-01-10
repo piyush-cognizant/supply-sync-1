@@ -12,6 +12,10 @@ import VendorListingPage from "./pages/VendorListingPage"
 import VendorDetailsPage from "./pages/VendorDetailsPage"
 import InventoryPage from "./pages/InventoryPage"
 import PurchaseOrderPage from "./pages/PurchaseOrderPage"
+import VendorDashboardPage from "./pages/VendorDashboardPage"
+import VendorPurchaseOrdersPage from "./pages/VendorPurchaseOrdersPage"
+import VendorOrderDetailsPage from "./pages/VendorOrderDetailsPage"
+import VendorProfilePage from "./pages/VendorProfilePage"
 import NotFoundPage from "./pages/NotFoundPage"
 import UnauthorizedPage from "./pages/UnauthorizedPage"
 import { Toaster } from "./components/ui/sonner"
@@ -29,15 +33,15 @@ createRoot(document.getElementById("root")).render(
             <Route path="manage/vendors" element={<VendorListingPage />} />
             <Route path="manage/vendors/:vendorId" element={<VendorDetailsPage />} />
             <Route path="manage/inventory" element={<InventoryPage />} />
-            <Route path="purchase-orders" element={<PurchaseOrderPage />} />
+            <Route path="manage/purchase-orders" element={<PurchaseOrderPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
 
           <Route path="/vendor" element={<VendorLayout />}>
-            <Route index element={<div>Welcome to Vendor Dashboard</div>} />
-            <Route path="purchase-orders" element={<div>Vendor Orders Page</div>} />
-            <Route path="purchase-orders/:id" element={<div>Vendor Order Details Page</div>} />
-            <Route path="profile" element={<div>Vendor Profile Page</div>} />
+            <Route index element={<VendorDashboardPage />} />
+            <Route path="manage/orders" element={<VendorPurchaseOrdersPage />} />
+            <Route path="manage/orders/:id" element={<VendorOrderDetailsPage />} />
+            <Route path="manage/profile" element={<VendorProfilePage />} />
             {/* Other invalid vendor routes */}
             <Route path="*" element={<NotFoundPage />} />
           </Route>

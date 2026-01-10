@@ -44,7 +44,7 @@ const QuickActionCard = () => {
       title: "Purchase Orders",
       description: "View purchase orders",
       icon: ShoppingCart,
-      path: "/admin/purchase-orders",
+      path: "/admin/manage/purchase-orders",
       color: "bg-green-500",
     },
     {

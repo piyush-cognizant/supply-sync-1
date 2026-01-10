@@ -81,7 +81,7 @@ const InventoryPage = () => {
     };
 
     // Navigate to purchase orders page with restock data
-    navigate("/admin/purchase-orders", { state: { restockData } });
+    navigate("/admin/manage/purchase-orders", { state: { restockData } });
   };
 
   if (loading) {

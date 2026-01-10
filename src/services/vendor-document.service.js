@@ -51,6 +51,30 @@ const vendorDocumentService = {
   },
 
   /**
+   * Get vendor documents by vendor ID
+   * @param {string} vendorId
+   * @returns {Promise<{success: boolean, data: vendorDocument[], message: string}>}
+   */
+  getByVendorId: async (vendorId) => {
+    const response = await apiService.sendRequest(`${VENDOR_DOCUMENT_ENDPOINT.GET}?vendorId=${vendorId}`);
+    console.log("Vendor Document Service Get By Vendor ID Response:", response);
+
+    if (response.success) {
+      return {
+        success: true,
+        data: response.data,
+        message: mapMessage("FETCH_SUCCESS"),
+      };
+    }
+
+    return {
+      success: false,
+      data: null,
+      message: mapMessage("SERVER_ERROR"),
+    };
+  },
+
+  /**
    * Create vendor document
    * @param {object} data
    * @returns {Promise<{success: boolean, data: vendorDocument, message: string}>}
