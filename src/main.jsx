@@ -10,6 +10,7 @@ import LandingPage from "./pages/LandingPage"
 import AdminDashboardPage from "./pages/AdminDashboardPage"
 import VendorListingPage from "./pages/VendorListingPage"
 import VendorDetailsPage from "./pages/VendorDetailsPage"
+import InventoryPage from "./pages/InventoryPage"
 import { Toaster } from "./components/ui/sonner"
 
 createRoot(document.getElementById("root")).render(
@@ -24,9 +25,8 @@ createRoot(document.getElementById("root")).render(
             <Route index element={ <AdminDashboardPage /> } />
             <Route path="manage/vendors" element={<VendorListingPage />} />
             <Route path="manage/vendors/:vendorId" element={<VendorDetailsPage />} />
+            <Route path="manage/inventory" element={<InventoryPage />} />
             <Route path="purchase-orders" element={<div>All Purchase Orders Page</div>} />
-            <Route path="inventory" element={<div>Inventory Page</div>} />
-            // Other invalid admin routes
             <Route path="*" element={<div>Admin 404 Not Found</div>} />
           </Route>
 

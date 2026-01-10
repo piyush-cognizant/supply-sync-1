@@ -54,7 +54,7 @@ const VendorListingPage = () => {
     : vendors.filter(vendor => vendor.status === statusFilter);
 
   return (
-    <div className="w-full p-6 space-y-6">
+    <div className="w-full py-6 space-y-6">
       {/* Breadcrumb Navigation */}
       <Breadcrumb>
         <BreadcrumbList>

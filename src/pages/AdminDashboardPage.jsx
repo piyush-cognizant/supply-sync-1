@@ -64,7 +64,7 @@ const AdminDashboardPage = () => {
   };
 
   return (
-    <div className="w-full p-6 space-y-6">
+    <div className="w-full py-6 space-y-6">
       {/* Header */}
       <div>
         <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>

@@ -15,12 +15,12 @@ const AdminLayout = () => {
     }
 
     return (
-        <>
+        <div className='px-4'>  
             <Header />
             <main className='mx-auto mt-6 max-w-6xl'>
                 <Outlet />
             </main>
-        </>
+        </div>
     )
 }
 

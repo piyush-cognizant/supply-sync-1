@@ -170,7 +170,7 @@ const VendorDetailsPage = () => {
   }
 
   return (
-    <div className="w-full p-6 space-y-6">
+    <div className="w-full py-6 space-y-6">
       {/* Breadcrumb Navigation */}
       <Breadcrumb>
         <BreadcrumbList>
@@ -202,7 +202,7 @@ const VendorDetailsPage = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Main Details Card */}
-        <div className="lg:col-span-2">
+        <div className="lg:col-span-2"> 
           <Card className="border-0 shadow-lg">
             <CardHeader>
               <CardTitle>Vendor Information</CardTitle>
